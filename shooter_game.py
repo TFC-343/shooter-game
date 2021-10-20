@@ -11,13 +11,11 @@ from pygame.locals import (
 
 from shooter_code import game_code
 from shooter_code import shop_code
-from shooter_code import settings_code
-from shooter_code import change_shooter
 
 __doc__ = """shooter game 2!"""
 __author__ = "TFC343"
-__version__ = "2.0.0a17.0"
-__build__ = "27"
+__version__ = "2.0.0"
+__build__ = "29"
 
 
 pygame.init()
@@ -57,20 +55,9 @@ def start_game(surf):
 pointers = pygame.sprite.Group()
 
 # selection
-selec = Selector(425, 5.2,
+selec = Selector(425, 7,
                  ['play', lambda surf: start_game(surf)],
                  ['shop', lambda surf: shop_code.open_shop(surf)],
-                 ['achievements', do_nothing],
-                 ['settings', settings_code.settings],
-                 ['quit', quit])
-
-selec = Selector(425, 4.6,
-                 ['play', lambda surf: start_game(surf)],
-                 ['change shooter', lambda surf: change_shooter.settings(surf)],
-                 ['shop', lambda surf: shop_code.open_shop(surf)],
-                 ['achievements', do_nothing],
-                 # ['settings', settings_code.settings],
-                 # ['credits', settings_code.settings],
                  ['quit', quit])
 
 # shooter
@@ -115,9 +102,6 @@ def game_loop():
 
         surf.fill(BACKGROUND_COLOUR)
 
-        shooter.draw(surf)
-
-        pygame.draw.rect(surf, GREEN, (100, 120, 400, 225), 3)  # 100, 120 to 500, 345
 
         build_word("shooter game", surf, 300, 60, 5, 1, 'centre')
         # pygame.draw.line(surf, CYAN, (300, 0), (300, 800))
