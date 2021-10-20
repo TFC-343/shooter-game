@@ -1,5 +1,0 @@
-update sql(player upgrades): 1
-update sql(shooter upgrades): 2
-add enemy: 3
-change difficulty: 4
-update money(shop menu page): 5
